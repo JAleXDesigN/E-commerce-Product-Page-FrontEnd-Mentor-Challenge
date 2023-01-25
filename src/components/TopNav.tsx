@@ -29,7 +29,7 @@ const TopNav = () => {
         <Header>
           <IconMenu />
 
-          <LogoWrapper href="/">
+          <LogoWrapper href="/" aria-label="Logo sneakers">
             <Logo />
           </LogoWrapper>
 
@@ -38,7 +38,12 @@ const TopNav = () => {
 
             <RightWrapper>
               <Badge orderNumber={itemsAdded.length} />
-              <Avatar src="https://res.cloudinary.com/dekp1iyjf/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1673909165/ecommerce-fementor/image-avatar_kkrq90.png" alt="User Image" width={24} height={24} />
+              <Avatar
+                src="https://res.cloudinary.com/dekp1iyjf/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1673909165/ecommerce-fementor/image-avatar_kkrq90.png"
+                alt="User Image"
+                width={24}
+                height={24}
+              />
             </RightWrapper>
           </NavWrapper>
 
