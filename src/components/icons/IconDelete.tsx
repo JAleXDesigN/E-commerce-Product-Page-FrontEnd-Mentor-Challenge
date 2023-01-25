@@ -28,7 +28,6 @@ const IconDelete: FC<IconSvgProps> = ({ onClick }) => {
         id="a"
         fill="#C3CAD9"
         fillRule="nonzero"
-        xlinkHref="#a"
       />
     </IconDeleteStyles>
   );

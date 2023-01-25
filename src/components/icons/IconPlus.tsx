@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { IconAddStyled } from "./styled";
-import { IconDivProps } from './types';
-
+import { IconDivProps } from "./types";
 
 const IconPlus: FC<IconDivProps> = ({ onClick }) => {
   return (
@@ -17,7 +16,6 @@ const IconPlus: FC<IconDivProps> = ({ onClick }) => {
           id="b"
           fill="#FF7E1B"
           fillRule="nonzero"
-          xlinkHref="#b"
         />
       </svg>
     </IconAddStyled>
