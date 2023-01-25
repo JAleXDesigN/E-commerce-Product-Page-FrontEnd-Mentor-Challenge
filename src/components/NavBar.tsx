@@ -8,7 +8,7 @@ const Navegacion: FC<NavBarProps> = ({ design }) => {
   const Nav = design === "horizontal" ? NavBarX : NavBarY;
   return (
     <Nav
-      role="navigaton"
+      role="navigation"
       aria-label={`${
         design === "horizontal" ? "Navigation mobile" : "Navigation desktop"
       }`}
