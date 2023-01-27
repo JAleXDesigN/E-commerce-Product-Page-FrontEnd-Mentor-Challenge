@@ -141,11 +141,11 @@ export const IconWrapper = styled("div")(({ theme }) => ({
     path: {
       transition: "fill .25s",
     },
-  },
-  ":hover": {
-    cursor: "pointer",
-    "svg path": {
-      fill: theme.colors.orange,
+    ":hover": {
+      cursor: "pointer",
+      path: {
+        fill: theme.colors.orange,
+      },
     },
   },
 }));

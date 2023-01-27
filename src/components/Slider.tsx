@@ -61,8 +61,8 @@ const Slider: FC<SliderProps> = ({ design, images, thumbnails }) => {
         onTouchEnd={onTouchEnd}
       >
         <ImagesWrapper className={`slide-${currentImage}`}>
-          {images?.map(({ src, title }, idx) => (
-            <img key={title} src={src} alt={title} className={`image-${idx}`} />
+          {images?.map(({ src, title }) => (
+            <img key={title} src={src} alt={title} />
           ))}
         </ImagesWrapper>
       </SilderWrapper>

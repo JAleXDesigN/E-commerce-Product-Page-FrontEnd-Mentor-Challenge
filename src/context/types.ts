@@ -13,7 +13,7 @@ export interface ICartContext {
     priceNormal,
     priceDesc,
     descPercent,
-    cantidad,
+    quantity,
   }: AddItemsInfo) => void;
   removeItem: (name: string) => void;
   total: number;
@@ -29,7 +29,7 @@ export type AddItemsInfo = {
   priceNormal: number;
   priceDesc: number;
   descPercent: number;
-  cantidad: number;
+  quantity: number;
 };
 
 //MenuContext

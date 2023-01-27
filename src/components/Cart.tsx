@@ -21,13 +21,13 @@ const Cart = () => {
       <TitleCart>Cart</TitleCart>
       <ItemsWrapper>
         {itemsAdded.length > 0 ? (
-          itemsAdded.map(({ image, name, priceDesc, cantidad, total }) => (
+          itemsAdded.map(({ image, name, priceDesc, quantity, total }) => (
             <Item key={name}>
               <ItemImage src={image} alt={`Product ${name}`} />
               <ItemData>
                 <h3>{name}</h3>
                 <p>
-                  {currencyFormatter(priceDesc)} x {cantidad} {" "}
+                  {currencyFormatter(priceDesc)} x {quantity}{" "}
                   <span>{currencyFormatter(total)}</span>
                 </p>
               </ItemData>

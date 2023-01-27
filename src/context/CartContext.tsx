@@ -6,9 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { ICartContext, IProviderProps, ItemInfo, AddItemsInfo } from './types';
-
-
+import { ICartContext, IProviderProps, ItemInfo, AddItemsInfo } from "./types";
 
 const CartContext = createContext<ICartContext>({
   itemsAdded: [],
@@ -27,11 +25,11 @@ const CartProvider: FC<IProviderProps> = ({ children }) => {
     priceNormal,
     priceDesc,
     descPercent,
-    cantidad,
+    quantity,
   }: AddItemsInfo) => {
-    console.log({ image, name, priceNormal, priceDesc, descPercent, cantidad });
+    console.log({ image, name, priceNormal, priceDesc, descPercent, quantity });
 
-    if (cantidad === 0) return;
+    if (quantity === 0) return;
 
     const itemExist = itemsAdded.find((item) => item.name === name);
 
@@ -39,8 +37,8 @@ const CartProvider: FC<IProviderProps> = ({ children }) => {
       if (item.name === name) {
         return {
           ...item,
-          cantidad: item.cantidad + cantidad,
-          total: priceDesc * (item.cantidad + cantidad),
+          quantity: item.quantity + quantity,
+          total: priceDesc * (item.quantity + quantity),
         };
       }
       return item;
@@ -57,8 +55,8 @@ const CartProvider: FC<IProviderProps> = ({ children }) => {
           priceNormal,
           priceDesc,
           descPercent,
-          cantidad,
-          total: priceDesc * cantidad,
+          quantity,
+          total: priceDesc * quantity,
         },
       ]);
     }

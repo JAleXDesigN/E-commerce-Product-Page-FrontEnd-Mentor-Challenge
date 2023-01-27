@@ -18,13 +18,15 @@ import IconMinus from "./icons/IconMinus";
 import IconPlus from "./icons/IconPlus";
 
 import { useCart } from "../context/CartContext";
-import { valueWithDesc, currencyFormatter } from "../utils/index";
+import { valueWithDesc, currencyFormatter, newQuantity } from "../utils/index";
 
 const ProductInfo: FC<ProductInfoProps> = ({ info, thumbnail }) => {
+  const [quantity, setQuantity] = useState(0);
   const { addItems } = useCart();
   const { company, name, description, price, descPercent } = info;
 
-  const [cantidad, setCantidad] = useState(0);
+  const priceFormatted = currencyFormatter(price);
+  const { formatted, number } = valueWithDesc(price, descPercent);
 
   return (
     <InfoWrapper>
@@ -34,19 +36,21 @@ const ProductInfo: FC<ProductInfoProps> = ({ info, thumbnail }) => {
 
       <PriceWrapper>
         <PriceDiscount>
-          {valueWithDesc(price, descPercent).formatted}
+          {formatted}
           <span>{descPercent}%</span>
         </PriceDiscount>
-        <PriceNormal>{currencyFormatter(price)}</PriceNormal>
+        <PriceNormal>{priceFormatted}</PriceNormal>
       </PriceWrapper>
 
       <ActionsWrapper>
         <QuantityWrapper>
           <IconMinus
-            onClick={() => setCantidad((prev) => (prev > 0 ? prev - 1 : 0))}
+            onClick={() => newQuantity("minus", quantity, setQuantity)}
           />
-          <Number>{cantidad}</Number>
-          <IconPlus onClick={() => setCantidad((prev) => prev + 1)} />
+          <Number>{quantity}</Number>
+          <IconPlus
+            onClick={() => newQuantity("plus", quantity, setQuantity)}
+          />
         </QuantityWrapper>
         <Button
           className="addToCard"
@@ -56,9 +60,9 @@ const ProductInfo: FC<ProductInfoProps> = ({ info, thumbnail }) => {
               image: thumbnail,
               name,
               priceNormal: price,
-              priceDesc: valueWithDesc(price, descPercent).number,
+              priceDesc: number,
               descPercent,
-              cantidad,
+              quantity,
             })
           }
         >
