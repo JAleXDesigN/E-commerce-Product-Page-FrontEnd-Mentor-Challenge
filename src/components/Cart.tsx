@@ -1,39 +1,18 @@
-import {
-  CartWrapper,
-  TitleCart,
-  ItemsWrapper,
-  Item,
-  ItemImage,
-  ItemData,
-  Button,
-} from "./Cart.styled";
-import IconDelete from "./icons/IconDelete";
+import { CartWrapper, TitleCart, ItemsWrapper, Button } from "./Cart.styled";
 import { useMenu } from "../context/MenuContext";
 import { useCart } from "../context/CartContext";
-import { currencyFormatter } from "../utils";
+import CartItem from "./CartItem";
 
 const Cart = () => {
   const { isCartOpen } = useMenu();
-  const { itemsAdded, removeItem } = useCart();
+  const { itemsAdded } = useCart();
 
   return (
     <CartWrapper isCartOpen={isCartOpen}>
       <TitleCart>Cart</TitleCart>
       <ItemsWrapper>
         {itemsAdded.length > 0 ? (
-          itemsAdded.map(({ image, name, priceDesc, quantity, total }) => (
-            <Item key={name}>
-              <ItemImage src={image} alt={`Product ${name}`} />
-              <ItemData>
-                <h3>{name}</h3>
-                <p>
-                  {currencyFormatter(priceDesc)} x {quantity}{" "}
-                  <span>{currencyFormatter(total)}</span>
-                </p>
-              </ItemData>
-              <IconDelete onClick={() => removeItem(name)} />
-            </Item>
-          ))
+          itemsAdded.map((item) => <CartItem key={item.name} {...item} />)
         ) : (
           <p>Your cart is empty</p>
         )}

@@ -31,6 +31,14 @@ export interface BadgeProps {
 }
 
 //Cart Component
+export interface CartItemProps {
+  image: string;
+  name: string;
+  priceDesc: number;
+  quantity: number;
+  total: number;
+}
+
 export type CartStyledProps = {
   isCartOpen: boolean;
 };
